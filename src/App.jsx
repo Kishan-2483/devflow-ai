@@ -4,6 +4,7 @@ import Positioning from './components/Positioning'
 import Features from './components/Features'
 import ProductShowcase from './components/ProductShowcase'
 import HowItWorks from './components/HowItWorks'
+import PlanGenerator from './components/PlanGenerator'
 import AIInteraction from './components/AIInteraction'
 import Security from './components/Security'
 import CTASection from './components/CTASection'
@@ -20,6 +21,7 @@ export default function App() {
         <Features />
         <ProductShowcase />
         <HowItWorks />
+        <PlanGenerator />
         <AIInteraction />
         <Security />
         <CTASection />

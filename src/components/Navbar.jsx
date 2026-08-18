@@ -73,6 +73,17 @@ export default function Navbar() {
               <a href="#cta" className="btn btn-primary btn-sm">Start Building</a>
             </div>
 
+            {/* Mobile-only CTA (visually hide on desktop) */}
+            <a
+              href="#cta"
+              id="nav-mobile-cta"
+              className="btn btn-accent btn-sm"
+              style={{ flexShrink: 0 }}
+              aria-label="Start building with DevFlow AI"
+            >
+              Get Started
+            </a>
+
             {/* Hamburger – mobile */}
             <button
               className="hamburger-btn"

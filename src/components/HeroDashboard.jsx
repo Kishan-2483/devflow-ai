@@ -75,6 +75,26 @@ export default function HeroDashboard() {
         </span>
       </div>
 
+      {/* Mobile nav strip — visible only below 600px (sidebar hidden) */}
+      <div className="dashboard-mobile-nav">
+        {SIDEBAR_ITEMS.map(({ icon: Icon, label, active }) => (
+          <button
+            key={label}
+            style={{
+              display: 'flex', alignItems: 'center', gap: 6,
+              padding: '6px 12px', borderRadius: 8, flexShrink: 0,
+              background: active ? 'var(--accent-light)' : 'var(--bg-surface)',
+              border: `1px solid ${active ? 'var(--accent-mid)' : 'var(--border-soft)'}`,
+              color: active ? 'var(--accent)' : 'var(--text-secondary)',
+              fontSize: '12px', fontWeight: 600,
+              cursor: 'pointer', fontFamily: 'inherit',
+            }}
+          >
+            <Icon size={13} />{label}
+          </button>
+        ))}
+      </div>
+
       {/* Dashboard body */}
       <div className="dashboard-body">
         {/* Sidebar */}
