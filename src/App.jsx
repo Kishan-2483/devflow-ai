@@ -1,24 +1,31 @@
-import { ThemeProvider } from './context/ThemeContext'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import Positioning from './components/Positioning'
 import Features from './components/Features'
-import Workflow from './components/Workflow'
-import CTA from './components/CTA'
+import ProductShowcase from './components/ProductShowcase'
+import HowItWorks from './components/HowItWorks'
+import AIInteraction from './components/AIInteraction'
+import Security from './components/Security'
+import CTASection from './components/CTASection'
+import FAQ from './components/FAQ'
 import Footer from './components/Footer'
 
 export default function App() {
   return (
-    <ThemeProvider>
-      <div style={{ minHeight: '100vh', background: 'var(--bg-base)', color: 'var(--fg-primary)' }}>
-        <Navbar />
-        <main>
-          <Hero />
-          <Features />
-          <Workflow />
-          <CTA />
-        </main>
-        <Footer />
-      </div>
-    </ThemeProvider>
+    <div style={{ background: 'var(--bg-page)', minHeight: '100vh' }}>
+      <Navbar />
+      <main>
+        <Hero />
+        <Positioning />
+        <Features />
+        <ProductShowcase />
+        <HowItWorks />
+        <AIInteraction />
+        <Security />
+        <CTASection />
+        <FAQ />
+      </main>
+      <Footer />
+    </div>
   )
 }
