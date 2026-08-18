@@ -9,7 +9,7 @@ DevFlow AI is an AI-powered developer workspace that turns complex engineering t
 ## 🚀 Live Demo & Deployment
 
 - **GitHub Repository:** [github.com/Kishan-2483/devflow-ai](https://github.com/Kishan-2483/devflow-ai)
-- **Deployment Platform:** Ready for 1-click deployment on [Vercel](https://devflow-ai-seven.vercel.app/) or Netlify.
+- **Deployment Platform:** Ready for 1-click deployment on [Vercel](https://devflow-ai-seven.vercel.app/).
 
 ---
 
