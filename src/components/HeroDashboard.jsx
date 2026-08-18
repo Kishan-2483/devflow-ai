@@ -28,43 +28,43 @@ function ProgressRing({ pct, size = 52, stroke = 5, color = '#7C6FF7' }) {
 
 /* ─── Initial task state ─── */
 const INITIAL_TASKS = [
-  { id: 1, label: 'Set up project scaffolding',    done: true,  priority: 'low',    effort: '30m' },
-  { id: 2, label: 'Design database schema',         done: true,  priority: 'high',   effort: '1h'  },
-  { id: 3, label: 'Implement JWT authentication',   done: true,  priority: 'high',   effort: '1.5h'},
-  { id: 4, label: 'Build OAuth2 callback handler',  done: false, priority: 'high',   effort: '1.5h'},
-  { id: 5, label: 'Write integration test suite',   done: false, priority: 'medium', effort: '2h'  },
-  { id: 6, label: 'Configure environment variables',done: false, priority: 'medium', effort: '20m' },
+  { id: 1, label: 'Set up project scaffolding', done: true, priority: 'low', effort: '30m' },
+  { id: 2, label: 'Design database schema', done: true, priority: 'high', effort: '1h' },
+  { id: 3, label: 'Implement JWT authentication', done: true, priority: 'high', effort: '1.5h' },
+  { id: 4, label: 'Build OAuth2 callback handler', done: false, priority: 'high', effort: '1.5h' },
+  { id: 5, label: 'Write integration test suite', done: false, priority: 'medium', effort: '2h' },
+  { id: 6, label: 'Configure environment variables', done: false, priority: 'medium', effort: '20m' },
 ]
 
 /* ─── Commit history ─── */
 const COMMITS = [
-  { hash: 'a3f291c', msg: 'Add JWT refresh token logic',          branch: 'feat/auth',     author: 'KY',  ago: '2h',  status: 'merged'  },
-  { hash: 'bb14e07', msg: 'Database schema migration v3',         branch: 'feat/auth',     author: 'KY',  ago: '5h',  status: 'merged'  },
-  { hash: '9d0234a', msg: 'Fix auth middleware null pointer bug',  branch: 'fix/middleware',author: 'KY',  ago: '1d',  status: 'merged'  },
-  { hash: '4a71bc3', msg: 'Add bcrypt password hashing',          branch: 'feat/auth',     author: 'KY',  ago: '1d',  status: 'merged'  },
-  { hash: 'f882e15', msg: 'Create sessions table migration',       branch: 'feat/auth',     author: 'KY',  ago: '2d',  status: 'merged'  },
-  { hash: '2c90d44', msg: 'OAuth2 provider configuration',        branch: 'feat/oauth',    author: 'KY',  ago: '2d',  status: 'open'    },
+  { hash: 'a3f291c', msg: 'Add JWT refresh token logic', branch: 'feat/auth', author: 'KY', ago: '2h', status: 'merged' },
+  { hash: 'bb14e07', msg: 'Database schema migration v3', branch: 'feat/auth', author: 'KY', ago: '5h', status: 'merged' },
+  { hash: '9d0234a', msg: 'Fix auth middleware null pointer bug', branch: 'fix/middleware', author: 'KY', ago: '1d', status: 'merged' },
+  { hash: '4a71bc3', msg: 'Add bcrypt password hashing', branch: 'feat/auth', author: 'KY', ago: '1d', status: 'merged' },
+  { hash: 'f882e15', msg: 'Create sessions table migration', branch: 'feat/auth', author: 'KY', ago: '2d', status: 'merged' },
+  { hash: '2c90d44', msg: 'OAuth2 provider configuration', branch: 'feat/oauth', author: 'KY', ago: '2d', status: 'open' },
 ]
 
 /* ─── Sprint modules for Progress ─── */
 const SPRINT_MODULES = [
-  { name: 'Database layer',   pct: 100, color: 'var(--green)',  tasks: 4,  done: 4  },
-  { name: 'Auth backend',     pct: 78,  color: 'var(--accent)', tasks: 9,  done: 7  },
-  { name: 'OAuth2 flow',      pct: 45,  color: 'var(--blue)',   tasks: 4,  done: 2  },
-  { name: 'Test suite',       pct: 22,  color: 'var(--peach)',  tasks: 5,  done: 1  },
+  { name: 'Database layer', pct: 100, color: 'var(--green)', tasks: 4, done: 4 },
+  { name: 'Auth backend', pct: 78, color: 'var(--accent)', tasks: 9, done: 7 },
+  { name: 'OAuth2 flow', pct: 45, color: 'var(--blue)', tasks: 4, done: 2 },
+  { name: 'Test suite', pct: 22, color: 'var(--peach)', tasks: 5, done: 1 },
 ]
 
 /* ─── Velocity data (7 days) ─── */
 const VELOCITY = [3, 5, 2, 7, 6, 8, 5]
-const DAYS     = ['M', 'T', 'W', 'T', 'F', 'S', 'S']
-const vMax     = Math.max(...VELOCITY)
+const DAYS = ['M', 'T', 'W', 'T', 'F', 'S', 'S']
+const vMax = Math.max(...VELOCITY)
 
 /* ─── Sidebar item config ─── */
 const SIDEBAR_ITEMS = [
   { id: 'dashboard', icon: LayoutDashboard, label: 'Dashboard' },
-  { id: 'tasks',     icon: ListTodo,        label: 'Tasks'     },
-  { id: 'commits',   icon: GitBranch,       label: 'Commits'   },
-  { id: 'progress',  icon: BarChart2,       label: 'Progress'  },
+  { id: 'tasks', icon: ListTodo, label: 'Tasks' },
+  { id: 'commits', icon: GitBranch, label: 'Commits' },
+  { id: 'progress', icon: BarChart2, label: 'Progress' },
 ]
 
 /* ══════════════════════════════════════════════
@@ -72,15 +72,15 @@ const SIDEBAR_ITEMS = [
    ══════════════════════════════════════════════ */
 function DashboardView({ tasks, doneCount, pct }) {
   const blockers = [
-    { label: 'OAuth callback URL mismatch',         severity: 'high'   },
-    { label: 'Missing integration test coverage',   severity: 'medium' },
-    { label: 'ENV variables undefined in staging',  severity: 'medium' },
+    { label: 'OAuth callback URL mismatch', severity: 'high' },
+    { label: 'Missing integration test coverage', severity: 'medium' },
+    { label: 'ENV variables undefined in staging', severity: 'medium' },
   ]
   const recentActivity = [
-    { icon: CheckCircle2, color: 'var(--green)',  text: 'JWT auth task marked complete',   ago: '2m'  },
-    { icon: Sparkles,     color: 'var(--accent)', text: 'AI plan updated with 2 subtasks', ago: '14m' },
-    { icon: CheckCircle2, color: 'var(--green)',  text: 'Database schema completed',       ago: '1h'  },
-    { icon: AlertCircle,  color: 'var(--peach)',  text: '3 blockers flagged by AI',        ago: '3h'  },
+    { icon: CheckCircle2, color: 'var(--green)', text: 'JWT auth task marked complete', ago: '2m' },
+    { icon: Sparkles, color: 'var(--accent)', text: 'AI plan updated with 2 subtasks', ago: '14m' },
+    { icon: CheckCircle2, color: 'var(--green)', text: 'Database schema completed', ago: '1h' },
+    { icon: AlertCircle, color: 'var(--peach)', text: '3 blockers flagged by AI', ago: '3h' },
   ]
 
   return (
@@ -95,9 +95,9 @@ function DashboardView({ tasks, doneCount, pct }) {
       {/* Sprint snapshot */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 8 }}>
         {[
-          { label: 'Complete',  value: `${pct}%`,         color: 'var(--accent)', bg: 'var(--accent-light)'  },
-          { label: 'Blockers',  value: '3',               color: 'var(--peach)',  bg: 'var(--peach-light)'   },
-          { label: 'Remaining', value: `${6 - doneCount}`, color: 'var(--blue)',   bg: 'var(--blue-light)'    },
+          { label: 'Complete', value: `${pct}%`, color: 'var(--accent)', bg: 'var(--accent-light)' },
+          { label: 'Blockers', value: '3', color: 'var(--peach)', bg: 'var(--peach-light)' },
+          { label: 'Remaining', value: `${6 - doneCount}`, color: 'var(--blue)', bg: 'var(--blue-light)' },
         ].map(card => (
           <div key={card.label} style={{ padding: '10px 12px', background: card.bg, borderRadius: 10, border: '1px solid var(--border-soft)', textAlign: 'center' }}>
             <div style={{ fontSize: '20px', fontWeight: 800, color: card.color, letterSpacing: '-0.03em' }}>{card.value}</div>
